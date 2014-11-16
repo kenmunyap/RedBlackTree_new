@@ -1,0 +1,52 @@
+---
+:source:
+  :path: test
+  :file: test_RedBlackTreeAdd.c
+:successes:
+- :test: test_addRedBlackTree_add_10_to_empty_tree
+  :line: 46
+  :message: ''
+- :test: test_addRedBlackTree_add_left_5_to_10_tree
+  :line: 67
+  :message: ''
+- :test: test_addRedBlackTree_add_right_15_to_10_tree
+  :line: 89
+  :message: ''
+- :test: test_addRedBlackTree_add_right_10_to_10_tree
+  :line: 111
+  :message: ''
+- :test: test_addRedBlackTree_add_left_1_to_5_to_10_tree
+  :line: 137
+  :message: ''
+- :test: test_addRedBlackTree_add_10_to_tree_should_left_right_rotate
+  :line: 165
+  :message: ''
+- :test: test_addRedBlackTree_add_10_to_tree_should_left_rotate
+  :line: 195
+  :message: ''
+- :test: test_addRedBlackTree_add_10_to_tree_should_right_left_rotate
+  :line: 224
+  :message: ''
+- :test: test_addRedBlackTree_add_7_to_4_node
+  :line: 250
+  :message: ''
+- :test: test_addRedBlackTree_add_12_to_4_node
+  :line: 278
+  :message: ''
+- :test: test_addRedBlackTree_add_18_to_4_node
+  :line: 306
+  :message: ''
+- :test: test_addRedBlackTree_add_10_to_tree_should_add_only
+  :line: 330
+  :message: ''
+- :test: test_addRedBlackTree_add_com_to_4_node
+  :line: 348
+  :message: ''
+:failures: []
+:ignores: []
+:counts:
+  :total: 13
+  :passed: 13
+  :failed: 0
+  :ignored: 0
+:stdout: []

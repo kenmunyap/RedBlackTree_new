@@ -1,0 +1,64 @@
+---
+:source:
+  :path: test
+  :file: test_Rotation.c
+:successes:
+- :test: test_rightRotation_3_elements
+  :line: 40
+  :message: ''
+- :test: test_rightRotation_4_elements
+  :line: 68
+  :message: ''
+- :test: test_rightRotation_5_elements
+  :line: 99
+  :message: ''
+- :test: test_leftRotation_3_elements
+  :line: 137
+  :message: ''
+- :test: test_leftRotation_4_elements
+  :line: 164
+  :message: ''
+- :test: test_leftRotation_5_elements
+  :line: 194
+  :message: ''
+- :test: test_leftRightRotate_with_3_elements
+  :line: 228
+  :message: ''
+- :test: test_leftRightRotate_with_4_elements
+  :line: 254
+  :message: ''
+- :test: test_leftRightRotate_with_6_elements
+  :line: 286
+  :message: ''
+- :test: test_leftRightRotate_with_6_elements_case2
+  :line: 322
+  :message: ''
+- :test: test_rightLeftRotate_with_3_elements
+  :line: 359
+  :message: ''
+- :test: test_rightLeftRotate_with_4_elements
+  :line: 385
+  :message: ''
+- :test: test_color_fliping
+  :line: 405
+  :message: ''
+- :test: test_changeRootByVal
+  :line: 428
+  :message: ''
+- :test: test_changeRootByRef
+  :line: 438
+  :message: ''
+:failures: []
+:ignores: []
+:counts:
+  :total: 15
+  :passed: 15
+  :failed: 0
+  :ignored: 0
+:stdout:
+- root is 10 with address 412124
+- 'changeRootByVal: node = 412164'
+- root is 10 with address 412124
+- root is 10 with address 412124
+- 'changeRootByRef: node = 28fdec'
+- root is 5 with address 412164
