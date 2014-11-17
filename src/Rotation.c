@@ -2,6 +2,12 @@
 #include "Rotation.h"
 #include "Node.h"
 
+/**
+ *  Title : Right Rotate
+ *  Objective : Right Rotate node
+ *  Input : nodePtr
+ *  Return : None
+ */
 void rightRotate(Node **nodePtr){
 
 		Node *checkRightChild = (*nodePtr)->left; 
@@ -18,6 +24,12 @@ void rightRotate(Node **nodePtr){
 		*nodePtr = currentRoot; 
 }
 
+/**
+ *  Title : Left Rotate
+ *  Objective : Left Rotate Node
+ *  Input : nodePtr
+ *  Return : None
+ */
 void leftRotate(Node **nodePtr){
 
 	Node *checkLeftChild = (*nodePtr)->right;
@@ -35,11 +47,25 @@ void leftRotate(Node **nodePtr){
 		*nodePtr = currentRoot;
 }
 
+/**
+ *  Title : Left Right Rotate
+ *  Objective : Left rotate node, then Right Rotate Node
+ *  Input : nodePtr
+ *  Return : None
+ *  Call funtion of leftRotate and rightRotate
+ */
 void leftRightRotate(Node **nodePtr){
 	leftRotate(&(*nodePtr)->left);
 	rightRotate(*(&nodePtr));
 }
 
+/**
+ *  Title : Right Left Rotate
+ *  Objective : Right rotate node, then Left Rotate Node
+ *  Input : nodePtr
+ *  Return : None
+ *  Call funtion of rightRotate and leftRotate
+ */
 void rightLeftRotate(Node **nodePtr){
 	rightRotate(&(*nodePtr)->right);
 	leftRotate(*(&nodePtr));

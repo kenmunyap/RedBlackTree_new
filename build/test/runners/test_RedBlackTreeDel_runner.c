@@ -36,7 +36,7 @@ extern void setUp(void);
 extern void tearDown(void);
 extern void test_removeNextLargerSuccessor_delete_10_r_and_NULL(void);
 extern void test_removeNextLargerSuccessor_delete_10_b_and_NULL(void);
-extern void test_removeNextLargerSuccessor_return_10_and15_become_left_parent(void);
+extern void test_removeNextLargerSuccessor_return_10_and15_become_parent(void);
 extern void test_removeNextLargerSuccessor_return_10_and_become_NULL_left(void);
 extern void test_removeNextLargerSuccessor_delete_5_r_from_root_10(void);
 extern void test_removeNextLargerSuccessor_should_remove_the_succesor_of_5_of_left_grandchild_case5(void);
@@ -63,6 +63,9 @@ extern void test_delRedBlackTree_delete_5_black_into_NULL_from_root_10_right_15_
 extern void test_delRedBlackTree_delete_15_black_into_NULL_from_root_10_right_5_flip_into_red(void);
 extern void test_delRedBlackTree_delete_1_black_from_root_2_and_rotate_left_and_flip_color_of_3_into_red(void);
 extern void test_delRedBlackTree_delete_3_black_from_root_2_and_flip_color_of_6_into_red(void);
+extern void test_delRedBlackTree_delete_5_red_from_root_2_and_6_r_and_3_b(void);
+extern void test_delRedBlackTree_delete_2_black_and_root_into_5b_and_6r(void);
+extern void test_delRedBlackTree_delete_2_black_and_root_into_1b_and_3b(void);
 extern void test_delRedBlackTree_remove_24B_and_restruct_20_12_into_red(void);
 extern void test_delRedBlackTree_remove_12B_and_restruct_10_24_into_red(void);
 
@@ -80,11 +83,11 @@ int main(void)
 {
   Unity.TestFile = "test_RedBlackTreeDel.c";
   UnityBegin();
-  RUN_TEST(test_removeNextLargerSuccessor_delete_10_r_and_NULL, 54);
-  RUN_TEST(test_removeNextLargerSuccessor_delete_10_b_and_NULL, 70);
-  RUN_TEST(test_removeNextLargerSuccessor_return_10_and15_become_left_parent, 90);
-  RUN_TEST(test_removeNextLargerSuccessor_return_10_and_become_NULL_left, 110);
-  RUN_TEST(test_removeNextLargerSuccessor_delete_5_r_from_root_10, 133);
+  RUN_TEST(test_removeNextLargerSuccessor_delete_10_r_and_NULL, 55);
+  RUN_TEST(test_removeNextLargerSuccessor_delete_10_b_and_NULL, 71);
+  RUN_TEST(test_removeNextLargerSuccessor_return_10_and15_become_parent, 91);
+  RUN_TEST(test_removeNextLargerSuccessor_return_10_and_become_NULL_left, 111);
+  RUN_TEST(test_removeNextLargerSuccessor_delete_5_r_from_root_10, 134);
   RUN_TEST(test_removeNextLargerSuccessor_should_remove_the_succesor_of_5_of_left_grandchild_case5, 162);
   RUN_TEST(test_removeNextLargerSuccessor_should_remove_the_succesor_of_5_of_left_grandchild_case6, 195);
   RUN_TEST(test_delRedBlackTree_delete_1_b_into_NULL_from_root_2_left_rotate, 239);
@@ -95,22 +98,25 @@ int main(void)
   RUN_TEST(test_delRedBlackTree_delete_1_into_NULL_from_right_left_rotate, 363);
   RUN_TEST(test_delRedBlackTree_delete_5_b_into_NULL_from_root_2_right_rotate, 395);
   RUN_TEST(test_delRedBlackTree_delete_4_b_into_NULL_from_root_2_left_right_rotate, 419);
-  RUN_TEST(test_delRedBlackTree_delete_3_black_into_NULL_from_root_2_left_1_change_into_red, 448);
-  RUN_TEST(test_delRedBlackTree_delete_3_black_into_NULL_from_root_2_red_change_black, 468);
-  RUN_TEST(test_delRedBlackTree_delete_5_b_into_NULL_use_case3_and_case2_right, 494);
-  RUN_TEST(test_delRedBlackTree_delete_8_into_NULL_using_case3_and_case1_right, 523);
-  RUN_TEST(test_delRedBlackTree_should_throw_if_not_found, 553);
-  RUN_TEST(test_delRedBlackTree_should_delete_the_root, 577);
-  RUN_TEST(test_delRedBlackTree_delete_5_red_into_NULL_from_root_10_left, 598);
-  RUN_TEST(test_delRedBlackTree_delete_15_red_into_NULL_from_root_10_right, 616);
-  RUN_TEST(test_delRedBlackTree_delete_5_red_into_NULL_from_root_10_left_15_remain_red, 634);
-  RUN_TEST(test_delRedBlackTree_delete_15_red_into_NULL_from_root_10_right_5_remain_red, 654);
-  RUN_TEST(test_delRedBlackTree_delete_5_black_into_NULL_from_root_10_right_15_flip_into_red, 674);
-  RUN_TEST(test_delRedBlackTree_delete_15_black_into_NULL_from_root_10_right_5_flip_into_red, 694);
-  RUN_TEST(test_delRedBlackTree_delete_1_black_from_root_2_and_rotate_left_and_flip_color_of_3_into_red, 716);
-  RUN_TEST(test_delRedBlackTree_delete_3_black_from_root_2_and_flip_color_of_6_into_red, 742);
-  RUN_TEST(test_delRedBlackTree_remove_24B_and_restruct_20_12_into_red, 806);
-  RUN_TEST(test_delRedBlackTree_remove_12B_and_restruct_10_24_into_red, 837);
+  RUN_TEST(test_delRedBlackTree_delete_3_black_into_NULL_from_root_2_left_1_change_into_red, 446);
+  RUN_TEST(test_delRedBlackTree_delete_3_black_into_NULL_from_root_2_red_change_black, 466);
+  RUN_TEST(test_delRedBlackTree_delete_5_b_into_NULL_use_case3_and_case2_right, 492);
+  RUN_TEST(test_delRedBlackTree_delete_8_into_NULL_using_case3_and_case1_right, 521);
+  RUN_TEST(test_delRedBlackTree_should_throw_if_not_found, 551);
+  RUN_TEST(test_delRedBlackTree_should_delete_the_root, 573);
+  RUN_TEST(test_delRedBlackTree_delete_5_red_into_NULL_from_root_10_left, 590);
+  RUN_TEST(test_delRedBlackTree_delete_15_red_into_NULL_from_root_10_right, 608);
+  RUN_TEST(test_delRedBlackTree_delete_5_red_into_NULL_from_root_10_left_15_remain_red, 626);
+  RUN_TEST(test_delRedBlackTree_delete_15_red_into_NULL_from_root_10_right_5_remain_red, 646);
+  RUN_TEST(test_delRedBlackTree_delete_5_black_into_NULL_from_root_10_right_15_flip_into_red, 666);
+  RUN_TEST(test_delRedBlackTree_delete_15_black_into_NULL_from_root_10_right_5_flip_into_red, 686);
+  RUN_TEST(test_delRedBlackTree_delete_1_black_from_root_2_and_rotate_left_and_flip_color_of_3_into_red, 708);
+  RUN_TEST(test_delRedBlackTree_delete_3_black_from_root_2_and_flip_color_of_6_into_red, 734);
+  RUN_TEST(test_delRedBlackTree_delete_5_red_from_root_2_and_6_r_and_3_b, 760);
+  RUN_TEST(test_delRedBlackTree_delete_2_black_and_root_into_5b_and_6r, 786);
+  RUN_TEST(test_delRedBlackTree_delete_2_black_and_root_into_1b_and_3b, 810);
+  RUN_TEST(test_delRedBlackTree_remove_24B_and_restruct_20_12_into_red, 834);
+  RUN_TEST(test_delRedBlackTree_remove_12B_and_restruct_10_24_into_red, 864);
 
   return (UnityEnd());
 }

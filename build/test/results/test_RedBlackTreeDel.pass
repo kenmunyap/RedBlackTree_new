@@ -4,19 +4,19 @@
   :file: test_RedBlackTreeDel.c
 :successes:
 - :test: test_removeNextLargerSuccessor_delete_10_r_and_NULL
-  :line: 54
+  :line: 55
   :message: ''
 - :test: test_removeNextLargerSuccessor_delete_10_b_and_NULL
-  :line: 70
+  :line: 71
   :message: ''
-- :test: test_removeNextLargerSuccessor_return_10_and15_become_left_parent
-  :line: 90
+- :test: test_removeNextLargerSuccessor_return_10_and15_become_parent
+  :line: 91
   :message: ''
 - :test: test_removeNextLargerSuccessor_return_10_and_become_NULL_left
-  :line: 110
+  :line: 111
   :message: ''
 - :test: test_removeNextLargerSuccessor_delete_5_r_from_root_10
-  :line: 133
+  :line: 134
   :message: ''
 - :test: test_removeNextLargerSuccessor_should_remove_the_succesor_of_5_of_left_grandchild_case5
   :line: 162
@@ -49,60 +49,67 @@
   :line: 419
   :message: ''
 - :test: test_delRedBlackTree_delete_3_black_into_NULL_from_root_2_left_1_change_into_red
-  :line: 448
+  :line: 446
   :message: ''
 - :test: test_delRedBlackTree_delete_3_black_into_NULL_from_root_2_red_change_black
-  :line: 468
+  :line: 466
   :message: ''
 - :test: test_delRedBlackTree_delete_5_b_into_NULL_use_case3_and_case2_right
-  :line: 494
+  :line: 492
   :message: ''
 - :test: test_delRedBlackTree_delete_8_into_NULL_using_case3_and_case1_right
-  :line: 523
+  :line: 521
   :message: ''
 - :test: test_delRedBlackTree_should_throw_if_not_found
-  :line: 553
+  :line: 551
   :message: ''
 - :test: test_delRedBlackTree_should_delete_the_root
-  :line: 577
+  :line: 573
   :message: ''
 - :test: test_delRedBlackTree_delete_5_red_into_NULL_from_root_10_left
-  :line: 598
+  :line: 590
   :message: ''
 - :test: test_delRedBlackTree_delete_15_red_into_NULL_from_root_10_right
-  :line: 616
+  :line: 608
   :message: ''
 - :test: test_delRedBlackTree_delete_5_red_into_NULL_from_root_10_left_15_remain_red
-  :line: 634
+  :line: 626
   :message: ''
 - :test: test_delRedBlackTree_delete_15_red_into_NULL_from_root_10_right_5_remain_red
-  :line: 654
+  :line: 646
   :message: ''
 - :test: test_delRedBlackTree_delete_5_black_into_NULL_from_root_10_right_15_flip_into_red
-  :line: 674
+  :line: 666
   :message: ''
 - :test: test_delRedBlackTree_delete_15_black_into_NULL_from_root_10_right_5_flip_into_red
-  :line: 694
+  :line: 686
   :message: ''
 - :test: test_delRedBlackTree_delete_1_black_from_root_2_and_rotate_left_and_flip_color_of_3_into_red
-  :line: 716
+  :line: 708
   :message: ''
 - :test: test_delRedBlackTree_delete_3_black_from_root_2_and_flip_color_of_6_into_red
-  :line: 742
+  :line: 734
+  :message: ''
+- :test: test_delRedBlackTree_delete_5_red_from_root_2_and_6_r_and_3_b
+  :line: 760
+  :message: ''
+- :test: test_delRedBlackTree_delete_2_black_and_root_into_5b_and_6r
+  :line: 786
+  :message: ''
+- :test: test_delRedBlackTree_delete_2_black_and_root_into_1b_and_3b
+  :line: 810
   :message: ''
 - :test: test_delRedBlackTree_remove_24B_and_restruct_20_12_into_red
-  :line: 806
+  :line: 834
   :message: ''
 - :test: test_delRedBlackTree_remove_12B_and_restruct_10_24_into_red
-  :line: 837
+  :line: 864
   :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 31
-  :passed: 31
+  :total: 34
+  :passed: 34
   :failed: 0
   :ignored: 0
-:stdout:
-- '24'
-- '12'
+:stdout: []

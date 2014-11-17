@@ -6,6 +6,15 @@
 #include "InitNode.h"
 #include "CException.h"
 
+/**
+ *  Title : _addRedBlackTree
+ *  Objective : to recursive add to red black tree and balance it
+ *  Input : rootPtr and newNode
+ *  Return : recursive _addRedBlackTree
+ *  root > newNode go left side
+ *  root < newNode go right side
+ *  balance the tree after adding
+ */
 void _addRedBlackTree(Node **rootPtr, Node *newNode){
 		
 		if(*rootPtr == NULL){
@@ -50,17 +59,29 @@ void _addRedBlackTree(Node **rootPtr, Node *newNode){
                     rightLeftRotate(rootPtr);
                     (*rootPtr)->left->color = 'r';
             }
-        }
-            
-         
+        }        
 }
 
+/**
+ *  Title : addRedBlackTree
+ *  Objective : main function of add red black tree
+ *  Input : rootPtr and newNode
+ *  Return : None
+ *  call _addRedBlackTree and change root into black color
+ */
 void addRedBlackTree(Node **rootPtr,Node *newNode){
 		_addRedBlackTree(rootPtr,newNode);
        (*rootPtr)->color = 'b';	
 }
 
 
+/**
+ *  Title : delRedBlackTree
+ *  Objective : main function of delete red black tree
+ *  Input : rootPtr and newNode
+ *   
+ *  call _delRedBlackTree and when root is not NULL root change into black color
+ */
 Node *delRedBlackTree(Node **rootPtr,Node *newNode){
   Node *node =_delRedBlackTree(rootPtr,newNode);
   if(*rootPtr != NULL){
@@ -69,7 +90,16 @@ Node *delRedBlackTree(Node **rootPtr,Node *newNode){
   return node;
 }
 
-
+/**
+ *  Title : _delRedBlackTree
+ *  Objective : to recursive del to red black tree and balance it
+ *  Input : rootPtr and newNode
+ *  Return: Node and recursive _delRedBlackTree
+ *  root > newNode go left side
+ *  root < newNode go right side
+ *  delete node that selected and delete it
+ *  balance the tree after delete
+ */
 Node *_delRedBlackTree(Node **rootPtr,Node *newNode){
 	Node *node; Node *temp1; Node *temp2; char col;
 		if((*rootPtr) == NULL || newNode == NULL){
@@ -80,14 +110,13 @@ Node *_delRedBlackTree(Node **rootPtr,Node *newNode){
 			if((*rootPtr)->data == newNode->data){   
                 if((*rootPtr)->right != NULL){
                     node = removeNextLargerSuccessor(&(*rootPtr)->right);
-                    printf("%d",(*rootPtr)->data);
                     temp1 = (*rootPtr)->left;
                     temp2 = (*rootPtr)->right;
                     col = (*rootPtr)->color;
                     *rootPtr = node;
-                    (*rootPtr)->right = temp2;
-                    (*rootPtr)->left = temp1;
-                    (*rootPtr)->color = col;
+                            (*rootPtr)->right = temp2;
+                            (*rootPtr)->left = temp1;
+                            (*rootPtr)->color = col;
                     goto here;
                 }else if((*rootPtr)->left != NULL){
                     node = removeNextLargerSuccessor(&(*rootPtr)->left); 
@@ -95,9 +124,9 @@ Node *_delRedBlackTree(Node **rootPtr,Node *newNode){
                     temp2 = (*rootPtr)->right;
                     col = (*rootPtr)->color;
                     *rootPtr = node;
-                    (*rootPtr)->right = temp2;
-                    (*rootPtr)->left = temp1;
-                    (*rootPtr)->color = col;
+                            (*rootPtr)->right = temp2;
+                            (*rootPtr)->left = temp1;
+                            (*rootPtr)->color = col;
                     goto here;
                 }else{
                     *rootPtr = NULL;
@@ -122,7 +151,15 @@ Node *_delRedBlackTree(Node **rootPtr,Node *newNode){
 	
 }
 
-//check succesor
+/**
+ *  Title : removeNextLargerSuccessor
+ *  Objective : remove node that selected and return to removeNode
+ *  Input : parentPtr
+ *  Return: removedNode
+ *  To left every time checking
+ *
+ *  Selected Node to remove and return next value
+ */
 Node *removeNextLargerSuccessor(Node **parentPtr){
 	Node *removeNode;
 	if((*parentPtr)->left != NULL){
@@ -144,7 +181,12 @@ Node *removeNextLargerSuccessor(Node **parentPtr){
 	return removeNode;	
 }
 
-//caseTotal
+/**
+ *  Title : caseTotalRemove
+ *  Objective : combine all case left and right
+ *  Input : rootPtr and removeNode
+ *  Return : none
+ */
 void caseTotalRemove(Node **rootPtr,Node *removedNode){
     if(isDouble((*rootPtr)->left, removedNode)){
       if(isBlack((*rootPtr)->right)){
@@ -171,8 +213,12 @@ void caseTotalRemove(Node **rootPtr,Node *removedNode){
 
 
 
-//left case
-
+/**
+ *  Title : case 1 left remove
+ *  Objective : to remove similar case in left
+ *  Input : rootPtr and removedNode
+ *  Return : None
+ */
 void caseOneLeftRemove(Node **rootPtr,Node *removedNode){
     char storeColor = (*rootPtr)->color;
     if(isBlack((*rootPtr)->right) && isRed((*rootPtr)->right->right)){
@@ -189,6 +235,12 @@ void caseOneLeftRemove(Node **rootPtr,Node *removedNode){
    
 }
 
+/**
+ *  Title : case 2 left remove
+ *  Objective : to remove similar case in left
+ *  Input : rootPtr and removedNode
+ *  Return : None
+ */
 void caseTwoLeftRemove(Node **rootPtr,Node *removedNode){
    if(isBlack((*rootPtr)) && isBlack((*rootPtr)->right)){
 		(*rootPtr)->color = 'd';
@@ -205,6 +257,12 @@ void caseTwoLeftRemove(Node **rootPtr,Node *removedNode){
 	}
 }
 
+/**
+ *  Title : case 3 left remove
+ *  Objective : to remove similar case in left
+ *  Input : rootPtr and removedNode
+ *  Return : None
+ */
 void caseThreeLeftRemove(Node **rootPtr,Node *removedNode){
     if(isRed((*rootPtr)->right)){
 		leftRotate(rootPtr);
@@ -220,8 +278,13 @@ void caseThreeLeftRemove(Node **rootPtr,Node *removedNode){
 	}
 }
 
-//right case
 
+/**
+ *  Title : case 1 right remove
+ *  Objective : to remove similar case in left
+ *  Input : rootPtr and removedNode
+ *  Return : None
+ */
 void caseOneRightRemove(Node **rootPtr, Node *removedNode){
     char storeColor = (*rootPtr)->color;
     if(isBlack((*rootPtr)->left) && isRed((*rootPtr)->left->left)){
@@ -238,6 +301,12 @@ void caseOneRightRemove(Node **rootPtr, Node *removedNode){
 	}  
 }
 
+/**
+ *  Title : case 2 right remove
+ *  Objective : to remove similar case in left
+ *  Input : rootPtr and removedNode
+ *  Return : None
+ */
 void caseTwoRightRemove(Node **rootPtr,Node *removedNode){
   if(isBlack((*rootPtr)) && isBlack((*rootPtr)->left)){
 		(*rootPtr)->color = 'd';
@@ -254,6 +323,12 @@ void caseTwoRightRemove(Node **rootPtr,Node *removedNode){
 	}
 }
 
+/**
+ *  Title : case 3 right remove
+ *  Objective : to remove similar case in left
+ *  Input : rootPtr and removedNode
+ *  Return : None
+ */
 void caseThreeRightRemove(Node **rootPtr,Node *removedNode){
     if(isRed((*rootPtr)->left)){
 		rightRotate(rootPtr);
@@ -272,8 +347,12 @@ void caseThreeRightRemove(Node **rootPtr,Node *removedNode){
 
 
 
-//check color
-
+/**
+ *  Title : Is Red Color
+ *  Objective : Check For Red Color
+ *  Input : Node
+ *  Return : 1 or 0
+ */
 int isRed(Node *node){
 	if((node) != NULL && (node)->color == 'r'){
 		return 1;
@@ -282,6 +361,12 @@ int isRed(Node *node){
 	}
 }
 
+/**
+ *  Title : Is Black Color
+ *  Objective : Check For Black Color
+ *  Input : Node
+ *  Return : 1 or 0
+ */
 int isBlack(Node *node){
 	if(node != NULL && node->color == 'b'){
 		return 1;
@@ -292,6 +377,12 @@ int isBlack(Node *node){
 	}
 }
 
+/**
+ *  Title : Is Double Black Color
+ *  Objective : Check For Double Black Color
+ *  Input : Node
+ *  Return : 1 or 0
+ */
 int isDouble(Node *node, Node *removedNode){
 	if((node) != NULL && (node)->color == 'd'){
 		if(removedNode->color == 'r' || removedNode->color == 'b'){
@@ -304,6 +395,10 @@ int isDouble(Node *node, Node *removedNode){
 	}
 }
 
+
+///////////////
+// previous delete case
+///////////////
 
 // Node *_delRedBlackTree(Node **rootPtr,Node *newNode){
   // Node *node;
